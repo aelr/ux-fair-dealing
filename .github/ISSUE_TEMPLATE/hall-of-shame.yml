@@ -1,0 +1,100 @@
+name: Hall of Shame Report
+description: Report a UX Fair Dealing violation or egregious dark pattern
+title: "[Hall of Shame] "
+labels:
+  - hall-of-shame
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Public accountability report for the [UX Fair Dealing Hall of Shame](/README.md#the-hall-of-shame-public-accountability).
+
+        **Required:** app name, violated checklist item, screenshots, and repro steps. Redact personal data in screenshots.
+
+  - type: input
+    id: app_name
+    attributes:
+      label: App or service name
+      placeholder: ExampleApp
+    validations:
+      required: true
+
+  - type: input
+    id: app_url
+    attributes:
+      label: App or service URL
+      placeholder: https://example.com
+    validations:
+      required: true
+
+  - type: dropdown
+    id: report_type
+    attributes:
+      label: Report type
+      description: See README for adopter vs. non-adopter eligibility.
+      options:
+        - Adopter — product declares UXFD adoption
+        - Non-adopter — egregious harm; product does not claim UXFD
+    validations:
+      required: true
+
+  - type: input
+    id: adoption_link
+    attributes:
+      label: UXFD adoption link (adopter reports only)
+      description: Where the product declares UXFD (About/Privacy page, badge target URL, apps.md entry, etc.)
+      placeholder: https://...
+
+  - type: dropdown
+    id: checklist_item
+    attributes:
+      label: Violated checklist item
+      options:
+        - "1. Show value before asking for money"
+        - "2. Make it easy to leave or opt out"
+        - "3. Don’t fake urgency, scarcity, or social proof"
+        - "4. Be honest and upfront with pricing"
+        - "5. Default to user privacy and choice"
+        - "6. Give fair warning before new charges"
+        - "7. Give users clear, neutral choices — no manipulation"
+        - Multiple items (describe in additional context)
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro_steps
+    attributes:
+      label: Steps to reproduce
+      description: How can someone else observe this in the live product?
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Paste image URLs here, or drag-and-drop images into a comment after you submit this issue.
+      placeholder: |
+        - Attach files in a follow-up comment if easier
+        - Or paste direct image links (one per line)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Optional — platform, app version, date observed, related links.
+      placeholder: iOS 18, web checkout, observed 2026-06-01, etc.
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I believe this report is accurate and submitted in good faith. I understand abusive or malicious reports may be handled via GitHub moderation.
+      required: true
